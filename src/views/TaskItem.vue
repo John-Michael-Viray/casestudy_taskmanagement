@@ -9,7 +9,6 @@
     </select>
     <span v-if="!editing">Status: {{ task.status }}</span>
     <button v-if="!editing" @click="toggleEdit">Edit</button>
-    <button v-if="editing" @click="saveTask">Submit</button>
     <button @click="deleteTask">Delete</button>
   </div>
 </template>
@@ -39,7 +38,6 @@ export default {
       this.editing = false;
     },
     deleteTask() {
-      // Emit an event to the parent component for task deletion
       this.$emit('delete', this.task.id);
     }
   }
